@@ -37,3 +37,22 @@ public:
         return dp[n];
     }
 };
+
+
+class Solution {
+public:
+    int climbStairs(int n) {
+        if(n==0) return 0;
+        if(n==1) return 1;
+
+        vector<int> arr;
+        arr.push_back(1);
+        arr.push_back(2);
+        for(int i=2; i<n; i++){
+            int ele =arr[i-1]+arr[i-2];
+            cout<<ele<<" ";
+            arr.push_back(ele);
+        }
+        return arr.back();
+    }
+};

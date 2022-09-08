@@ -67,3 +67,28 @@ public:
         
     }
 };
+
+// IN PYTHON
+class Solution(object):
+    def dfs(self, image, sr, sc, val, colour):
+        
+        if(sr >= len(image) or sc >= len(image[0]) or sr < 0 or sc < 0 or image[sr][sc]!=val or image[sr][sc]== colour):
+            return
+        else:
+            image[sr][sc]=colour
+            self.dfs(image,sr+1, sc, val, colour)
+            self.dfs(image,sr-1, sc, val, colour)
+            self.dfs(image,sr, sc+1, val, colour)
+            self.dfs(image,sr, sc-1, val, colour)
+
+    def floodFill(self, image, sr, sc, color):
+        """
+        :type image: List[List[int]]
+        :type sr: int
+        :type sc: int
+        :type color: int
+        :rtype: List[List[int]]
+        """
+        self.dfs(image,sr,sc,image[sr][sc],color)
+        return image
+        
